@@ -12,6 +12,41 @@ public class CircularSubarraySum {
 
     }
 
+    static int curcularSumEff(int[] arr) {
+
+        int res = arr[0];
+
+        int maxNormal = kadane(arr);
+
+        if (maxNormal < 0)
+            return maxNormal;
+
+        int arrSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            arrSum += arr[i];
+            arr[i] = -arr[i];
+        }
+
+        int max_circular = arrSum - (-kadane(arr));
+
+        return Math.max(maxNormal, max_circular);
+    }
+
+    static int kadane(int[] arr) {
+
+        int res = arr[0];
+
+        int[] endMax = new int[arr.length];
+        endMax[0] = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            endMax[i] = Math.max(arr[i], endMax[i - 1] + arr[i]);
+            res = Math.max(res, endMax[i]);
+        }
+
+        return res;
+    }
+
     static int curcularSumNaive(int[] arr) {
 
         int res = 0;
@@ -27,20 +62,6 @@ public class CircularSubarraySum {
                 res = Math.max(curr, res);
                 // System.out.println(curr + " " + res);
             }
-        }
-
-        return res;
-    }
-
-    static int curcularSumEff(int[] arr) {
-
-        int res = arr[0];
-
-        int[] maxEnd = new int[arr.length];
-        maxEnd[0] = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            maxEnd[i] = Math.max(maxEnd[i - 1] + arr[i], arr[i]);
-            res = Math.max(maxEnd[i], res);
         }
 
         return res;
