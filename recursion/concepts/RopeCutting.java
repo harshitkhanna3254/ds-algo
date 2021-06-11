@@ -8,8 +8,10 @@ public class RopeCutting {
         int c = 1;
 
         System.out.println(cutRope(num, a, b, c));
-
     }
+
+    // cut rope in maximum number of pieces such that the pieces are of length in
+    // the set {a,b,c} only
 
     static int cutRope(int num, int a, int b, int c) {
 
