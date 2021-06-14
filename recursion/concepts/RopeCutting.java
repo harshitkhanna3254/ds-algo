@@ -15,6 +15,17 @@ public class RopeCutting {
 
     static int cutRope(int num, int a, int b, int c) {
 
-        return num;
+        if (num < 0)
+            return -1;
+
+        if (num == 0)
+            return 0;
+
+        int res = Math.max(Math.max(cutRope(num - a, a, b, c), cutRope(num - b, a, b, c)), cutRope(num - c, a, b, c));
+
+        if (res == -1)
+            return -1;
+
+        return res + 1;
     }
 }
