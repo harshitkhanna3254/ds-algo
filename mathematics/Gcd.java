@@ -1,5 +1,4 @@
 package mathematics;
-import java.math.*;
 
 public class Gcd {
 
@@ -10,7 +9,6 @@ public class Gcd {
         Gcd gcd = new Gcd();
         System.out.println(gcd.getGcd(num1, num2));
         System.out.println(gcd.getEuclidGcd(num1, num2));
-
 
     }
 

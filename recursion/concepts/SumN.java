@@ -1,4 +1,4 @@
-package concepts;
+package recursion.concepts;
 
 public class SumN {
     public static void main(String[] args) {

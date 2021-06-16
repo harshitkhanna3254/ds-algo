@@ -1,4 +1,4 @@
-package concepts;
+package recursion.concepts;
 
 public class RopeCutting {
     public static void main(String[] args) {
