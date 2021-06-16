@@ -16,14 +16,14 @@ public class allDivisors {
         List<Integer> arr = new ArrayList<>();
 
         int i = 1;
-        for(i = 1; i<= Math.sqrt(num); i++) {
-            if(num % i == 0) {
+        for (i = 1; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
                 arr.add(i);
             }
         }
 
-        for( ; i >= 1; i--) {
-            if(num % i == 0 && i != Math.sqrt(num) ){
+        for (; i >= 1; i--) {
+            if (num % i == 0 && i != Math.sqrt(num)) {
                 arr.add(num / i);
             }
         }
