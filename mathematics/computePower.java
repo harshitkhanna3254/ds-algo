@@ -10,11 +10,19 @@ public class computePower {
     }
 
     static int computePower(int x, int n) {
-        if (n == 1) {
-            return x;
+        if (n == 0) {
+            return 1;
         }
 
-        return n % 2 == 0 ? computePower(x, n / 2) * computePower(x, n / 2) : computePower(x, n - 1) * x;
+        int temp = computePower(x, n / 2);
+        temp = temp * temp;
+
+        if (n % 2 == 0) {
+            return temp;
+        } else {
+            return x * temp;
+        }
+
     }
 
     static int iterativePower(int x, int n) {
