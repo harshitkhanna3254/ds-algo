@@ -1,52 +1,35 @@
 package practise;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Prac {
     public static void main(String[] args) {
-        final int num = 250;
 
-        int[] arr = { 7, 4, 1, 2, 6, 9, 7, 5, 8, 3 };
+        Integer[] arr = { 7, 4, 1, 2, 6, 9, 7, 5, 8, 3 };
 
-        int[] arr2 = { 2, 3, 10, 6, 4, 8, 1 };
-
-        int[] arr3 = { 20, 20, 20 };
-
-        int[] arr4 = { 3, 4, 8, -9, 20, 6 };
-
-        // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 .....
-
-        pracArr(arr4);
+        pracArr(arr);
 
     }
 
-    static void pracArr(int[] arr) {
+    static void pracArr(Integer[] arr) {
 
-        int[] prefixSum = new int[arr.length];
-        prefixSum[0] = arr[0];
+        Arrays.sort(arr, Collections.reverseOrder());
 
-        for (int i = 1; i < arr.length; i++) {
-            prefixSum[i] = prefixSum[i - 1] + arr[i];
-        }
+        Arrays.sort(arr, new MyComp());
 
-        System.out.println(Arrays.toString(prefixSum));
+        System.out.println(Arrays.toString(arr));
 
     }
 
-    static void pracArrVoid(int[] arr) {
+}
 
-    }
+class MyComp implements Comparator<Integer> {
 
-    static int kadane(int[] arr) {
-        int res = arr[0];
-        int maxEnding = arr[0];
+    public int compare(Integer i1, Integer i2) {
 
-        for (int i = 1; i < arr.length; i++) {
-            maxEnding = Math.max(maxEnding + arr[i], arr[i]);
-            res = Math.max(maxEnding, res);
-        }
-
-        return res;
+        return i1 % 2 - i2 % 2;
     }
 
 }
