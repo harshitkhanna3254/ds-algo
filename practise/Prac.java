@@ -9,11 +9,19 @@ public class Prac {
 
         int[] arr = { 10, 5, 30, 15, 7 };
 
-        int l = 0;
-        int r = arr.length - 1;
-        mergeSort(arr, l, r);
+        swap(arr, 1, 2);
+
+        // int l = 0;
+        // int r = arr.length - 1;
+        // mergeSort(arr, l, r);
         System.out.println(Arrays.toString(arr));
 
+    }
+
+    public static void swap(int[] arr, int x, int y) {
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
     }
 
     static void mergeSort(int[] arr, int l, int r) {
