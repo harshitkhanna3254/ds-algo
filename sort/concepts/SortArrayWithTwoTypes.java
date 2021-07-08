@@ -2,28 +2,18 @@ package sort.concepts;
 
 import java.util.Arrays;
 
-public class QuickSort {
+public class SortArrayWithTwoTypes {
     public static void main(String[] args) {
 
         int[] arr = { 8, 4, 7, 9, 3, 10, 5 };
 
         int[] arr1 = { 20, 5, 40, 60, 10, 30 };
 
-        // System.out.println(hoare(arr, 0, 6));
-
-        quicksortLomuto(arr, 0, 6);
+        quicksortHoare(arr, 0, 6);
         System.out.println(Arrays.toString(arr));
 
         quicksortHoare(arr1, 0, 5);
         System.out.println(Arrays.toString(arr1));
-    }
-
-    static void quicksortLomuto(int[] arr, int low, int high) {
-        if (low < high) {
-            int partitionIndex = lomuto(arr, low, high);
-            quicksortLomuto(arr, low, partitionIndex - 1);
-            quicksortLomuto(arr, partitionIndex + 1, high);
-        }
     }
 
     static void quicksortHoare(int[] arr, int low, int high) {
@@ -54,22 +44,6 @@ public class QuickSort {
 
             swap(arr, i, j);
         }
-    }
-
-    static int lomuto(int[] arr, int low, int high) {
-
-        int i = low - 1;
-        int pivot = arr[high];
-
-        while (low < high) {
-            if (arr[low] < pivot) {
-                swap(arr, ++i, low);
-            }
-            low++;
-        }
-
-        swap(arr, ++i, high);
-        return i;
     }
 
     static void swap(int[] arr, int x, int y) {
