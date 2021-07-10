@@ -5,42 +5,54 @@ import java.util.Arrays;
 public class SortArrayWithTwoTypes {
     public static void main(String[] args) {
 
-        int[] arr = { 8, 4, 7, 9, 3, 10, 5 };
-
-        int[] arr1 = { 20, 5, 40, 60, 10, 30 };
-
-        quicksortHoare(arr, 0, 6);
+        int[] arr = { 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1 };
+        zeroesAndOnes(arr);
         System.out.println(Arrays.toString(arr));
 
-        quicksortHoare(arr1, 0, 5);
+        int[] arr1 = { 21, 4, 6, 3, 8, 3, 5643, 765, 35, 78, 3, 5, 836, 367, 86, 233, 643, 23, 68, 26, 2367, 547, 46,
+                465, 235, 68, 97, 13, 35 };
+        evenAndOdd(arr1);
         System.out.println(Arrays.toString(arr1));
     }
 
-    static void quicksortHoare(int[] arr, int low, int high) {
-        if (low < high) {
-            int partitionIndex = hoare(arr, low, high);
-            quicksortHoare(arr, low, partitionIndex);
-            quicksortHoare(arr, partitionIndex + 1, high);
-        }
-    }
+    public static void evenAndOdd(int[] arr) {
 
-    static int hoare(int[] arr, int low, int high) {
-
-        int pivot = arr[low];
-
-        int i = low - 1;
-        int j = high + 1;
+        int i = -1;
+        int j = arr.length;
 
         while (true) {
             do {
                 i++;
-            } while (arr[i] < pivot);
+            } while (arr[i] % 2 == 0);
+
             do {
                 j--;
-            } while (arr[j] > pivot);
+            } while (arr[j] % 2 == 1);
 
             if (i >= j)
-                return j;
+                return;
+
+            swap(arr, i, j);
+        }
+
+    }
+
+    public static void zeroesAndOnes(int[] arr) {
+
+        int i = -1;
+        int j = arr.length;
+
+        while (true) {
+            do {
+                i++;
+            } while (arr[i] == 0);
+
+            do {
+                j--;
+            } while (arr[j] == 1);
+
+            if (i >= j)
+                return;
 
             swap(arr, i, j);
         }
