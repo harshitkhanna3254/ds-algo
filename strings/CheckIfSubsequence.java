@@ -7,15 +7,30 @@ public class CheckIfSubsequence {
 
         printSubstrings(str, sub);
 
-        System.out.println(checkSubseq(str, sub));
+        System.out.println(checkSubseqItr(str, sub));
 
+    }
+
+    public static boolean checkSubseqRec(String str, String sub, int i, int j) {
+
+        if (i == 0)
+            return true;
+        if (j == 0)
+            return false;
+
+        if (str.charAt(i - 1) == sub.charAt(j - 1))
+            checkSubseqRec(str, sub, i, j);
+        else
+            checkSubseqRec(str, sub, i - 1, j);
+
+        return false;
     }
 
     public static void printSubstrings(String str, String sub) {
 
     }
 
-    public static boolean checkSubseq(String str, String sub) {
+    public static boolean checkSubseqItr(String str, String sub) {
 
         int i = 0;
         int j = 0;
