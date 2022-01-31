@@ -1,79 +1,71 @@
 package practise;
 
-import java.util.Arrays;
-
 public class Prac {
     public static void main(String[] args) {
 
-        // int[] arr = { 7, 4, 1, 2, 6, 9, 7, 5, 8, 3 };
+        // String str = "ABCDCBA";
+        // String str = "ABBA";
+        // String str = "geeks";
 
-        int[] arr = { 10, 5, 30, 15, 7 };
+        // String str1 = "ABCDEF";
+        // String str2 = "AED";
+        String str1 = "ABCDEF";
+        String str2 = "ACF";
 
-        swap(arr, 1, 2);
-
-        // int l = 0;
-        // int r = arr.length - 1;
-        // mergeSort(arr, l, r);
-        System.out.println(Arrays.toString(arr));
-
-    }
-
-    public static void swap(int[] arr, int x, int y) {
-        int temp = arr[x];
-        arr[x] = arr[y];
-        arr[y] = temp;
-    }
-
-    static void mergeSort(int[] arr, int l, int r) {
-
-        if (r > l) {
-            int mid = l + (r - l) / 2;
-
-            mergeSort(arr, l, mid);
-            mergeSort(arr, mid + 1, r);
-            merge(arr, l, mid, r);
-        }
+        // System.out.println(pallindrome(str));
+        // System.out.println(subsequence(str1, str2));
+        System.out.println(subsequenceRecursive(str1, str2, str1.length(), str2.length()));
 
     }
 
-    static void merge(int[] arr, int l, int m, int r) {
+    public static boolean subsequenceRecursive(String str1, String str2, int length1, int length2) {
+        
+        if (length2 == 0)
+            return true;
 
-        int length1 = m - l + 1;
-        int[] arr1 = new int[length1];
-        for (int i = 0; i < length1; i++) {
-            arr1[i] = arr[l + i];
-        }
+        if (length1 == 0)
+            return false;
 
-        int length2 = r - m;
-        int[] arr2 = new int[length2];
-        for (int i = 0; i < length2; i++) {
-            arr2[i] = arr[m + i + 1];
-        }
+        if (str1.charAt(length1 - 1) == str2.charAt(length2 - 1))
+            return subsequenceRecursive(str1, str2, length1 - 1, length2 - 1);
+        else
+            return subsequenceRecursive(str1, str2, length1 - 1, length2);
+
+    }
+
+    public static boolean subsequence(String str1, String str2) {
 
         int i = 0;
         int j = 0;
-        int mainIndex = l;
-        while (i < length1 && j < length2) {
-            if (arr1[i] <= arr2[j]) {
-                arr[mainIndex] = arr1[i];
+
+        while (i < str1.length() - 1) {
+            if (str1.charAt(i) == str2.charAt(j)) {
+                System.out.println(str2.charAt(j));
                 i++;
-            } else {
-                arr[mainIndex] = arr2[j];
                 j++;
+            } else {
+                i++;
             }
-            mainIndex++;
         }
 
-        while (i < length1) {
-            arr[mainIndex] = arr1[i];
-            i++;
-            mainIndex++;
+        return j == str2.length();
+
+    }
+
+    public static String pallindrome(String str) {
+
+        int first = 0;
+        int last = str.length() - 1;
+
+        while (first < last) {
+            if (str.charAt(first) != str.charAt(last))
+                return "NO";
+
+            first++;
+            last--;
         }
-        while (j < length2) {
-            arr[mainIndex] = arr2[j];
-            j++;
-            mainIndex++;
-        }
+
+        return "YES";
     }
 
 }
