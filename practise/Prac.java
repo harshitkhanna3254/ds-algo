@@ -1,5 +1,7 @@
 package practise;
 
+import java.util.HashMap;
+
 public class Prac {
     public static void main(String[] args) {
 
@@ -7,19 +9,58 @@ public class Prac {
         // String str = "ABBA";
         // String str = "geeks";
 
+        // subsequence
         // String str1 = "ABCDEF";
         // String str2 = "AED";
-        String str1 = "ABCDEF";
-        String str2 = "ACF";
+        // String str1 = "ABCDEF";
+        // String str2 = "ACF";
+
+        // anagram
+        String str1 = "silent";
+        String str2 = "listen";
+        // String str1 = "aaacb";
+        // String str2 = "baaca";
 
         // System.out.println(pallindrome(str));
         // System.out.println(subsequence(str1, str2));
-        System.out.println(subsequenceRecursive(str1, str2, str1.length(), str2.length()));
+        // System.out.println(subsequenceRecursive(str1, str2, str1.length(),
+        // str2.length()));
+        System.out.println(anagram(str1, str2));
 
     }
 
+    public static boolean anagram(String str1, String str2) {
+
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < str1.length(); i++) {
+            hashMap.put(str1.charAt(i), hashMap.getOrDefault(str1.charAt(i), 0) + 1);
+        }
+
+        for (int i = 0; i < str2.length(); i++) {
+
+            char currentCharacter = str2.charAt(i);
+
+            if (!hashMap.containsKey(currentCharacter)) {
+                return false;
+            }
+
+            int frequency = hashMap.get(currentCharacter);
+
+            if (frequency > 1)
+                hashMap.put(currentCharacter, frequency - 1);
+            else
+                hashMap.remove(currentCharacter);
+        }
+
+        if (hashMap.size() > 0)
+            return false;
+
+        return true;
+    }
+
     public static boolean subsequenceRecursive(String str1, String str2, int length1, int length2) {
-        
+
         if (length2 == 0)
             return true;
 
