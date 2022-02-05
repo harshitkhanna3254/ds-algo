@@ -1,6 +1,9 @@
 package practise;
 
+import java.util.Arrays;
 import java.util.HashMap;
+
+import javax.print.DocFlavor.CHAR_ARRAY;
 
 public class Prac {
     public static void main(String[] args) {
@@ -16,17 +19,76 @@ public class Prac {
         // String str2 = "ACF";
 
         // anagram
-        String str1 = "silent";
-        String str2 = "listen";
+        // String str1 = "silent";
+        // String str2 = "listen";
         // String str1 = "aaacb";
         // String str2 = "baaca";
+
+        // leftmost repeating character
+        // String str = "abbcc";
+        // String str = "geeksforgeeks";
+        // String str = "abcd";
+        // String str = "abccbd";
+
+        //reverse
+        String str = "My Name is HK";
 
         // System.out.println(pallindrome(str));
         // System.out.println(subsequence(str1, str2));
         // System.out.println(subsequenceRecursive(str1, str2, str1.length(),
         // str2.length()));
-        System.out.println(anagram(str1, str2));
+        // System.out.println(anagram(str1, str2));
+        // System.out.println(leftmostRepeatingCharacter(str));
+        // System.out.println(leftmostRepeatingCharacterEfficientV1(str));
+        reverseString(str);
 
+    }
+
+    public static void reverseString(String str) {
+
+        String[] strArray = str.split(" ");
+
+        if (strArray.length == 1) {
+            System.out.println(str);
+            return;
+        }
+
+
+
+
+    }
+
+    public static int leftmostRepeatingCharacterEfficientV1(String str) {
+        int[] indexArray = new int[256];
+        Arrays.fill(indexArray, -1);
+
+        int resultIndex = Integer.MAX_VALUE;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (indexArray[str.charAt(i)] == -1) {
+                indexArray[str.charAt(i)] = i;
+            } else {
+                resultIndex = Math.min(indexArray[str.charAt(i)], resultIndex);
+            }
+        }
+
+        return resultIndex == Integer.MAX_VALUE ? -1 : resultIndex;
+    }
+
+    public static int leftmostRepeatingCharacter(String str) {
+        int[] countArray = new int[256];
+
+        for (int i = 0; i < str.length(); i++) {
+            countArray[str.charAt(i)]++;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            if (countArray[str.charAt(i)] > 1) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public static boolean anagram(String str1, String str2) {
