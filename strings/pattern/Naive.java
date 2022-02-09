@@ -2,45 +2,33 @@ package strings.pattern;
 
 public class Naive {
     public static void main(String[] args) {
-        String str = "ABCABCD";
+        String str = "GEEKSFORGEEKS";
+        String pattern = "EKS";
 
-        String pattern = "ABCD";
+        // String str = "ABCABCDABCD";
+        // String pattern = "ABCD";
 
-        boolean contains = naivePatternSearch(str, pattern);
+        // String str = "ABCcxzvxzvCD";
+        // String pattern = "ABCD";
 
-        System.out.println(contains);
+        naivePatternSearch(str, pattern);
     }
 
-    public static boolean naivePatternSearch(String str, String pattern) {
+    public static void naivePatternSearch(String str, String pattern) {
 
-        int start = 0;
+        int m = str.length();
+        int n = pattern.length();
 
-        while (start != str.length()) {
-
-            if (str.charAt(start) == pattern.charAt(0)) {
-                int index1 = start + 1;
-                int index2 = 1;
-
-                Boolean contains = true;
-
-                while (index2 != pattern.length()) {
-                    if (str.charAt(index1) != pattern.charAt(index2)) {
-                        start = index1 - 1;
-                        contains = false;
-                        break;
-                    }
-                    index1++;
-                    index2++;
-                }
-
-                if (contains == true)
-                    return true;
+        for (int i = 0; i <= m - n; i++) {
+            int j;
+            for (j = 0; j < n; j++) {
+                if(str.charAt(i+j) != pattern.charAt(j))
+                    break;
             }
 
-            start++;
+            if(j == n)
+                System.out.println("Starts at : " + i);
         }
-
-        return false;
 
     }
 }
