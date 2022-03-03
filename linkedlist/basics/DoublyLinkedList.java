@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedlist.basics;
 
 class DoubleNode {
     int data;
