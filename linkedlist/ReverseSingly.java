@@ -4,15 +4,15 @@ public class ReverseSingly {
     public static void main(String[] args) {
 
         Node head = Node.createSinglyLinkedList();
+        // Node.print(head);
+
+        head = reverseRecursiveV2(head, null);
         Node.print(head);
 
-        head = reverseIterative(head);
-        Node.print(head);
-
-        Node head1 = new Node(100);
-        Node.print(head1);
-        head1 = reverseIterative(head1);
-        Node.print(head1);
+        // Node head1 = new Node(100);
+        // // Node.print(head1);
+        // head1 = reverseRecursiveV1(head1);
+        // Node.print(head1);
     }
 
     public static Node reverseIterative(Node head) {
@@ -31,20 +31,29 @@ public class ReverseSingly {
         return prev;
     }
 
-    // public static Node reverseRecursiveV1(Node head) {
+    public static Node reverseRecursiveV1(Node head) {
 
-    //     if (head.next.next == null)
-    //         return head;
+        if (head == null || head.next == null)
+            return head;
 
-    //     reverseIterative(head.next);
+        Node tail = reverseRecursiveV1(head.next);
 
-    //     Node curr = head.next;
-    //     Node prev = head;
-    //     Node next = curr.next;
+        Node next = head.next;
+        head.next = next.next;
+        next.next = head;
 
-    //     curr.next = prev;
+        return tail;
+    }
 
+    public static Node reverseRecursiveV2(Node head, Node temp) {
 
-    // }
+        if (head == null)
+            return temp;
+
+        Node next = head.next;
+        head.next = temp;
+
+        return reverseRecursiveV2(next, head);
+    }
 
 }
