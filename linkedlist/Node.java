@@ -65,6 +65,23 @@ public class Node {
         return head;
     }
 
+    public Node createSinglyLinkedList(int a, int b, int c, int d, int e, int f) {
+        Node head = new Node(a);
+        Node node2 = new Node(b);
+        Node node3 = new Node(c);
+        Node node4 = new Node(d);
+        Node node5 = new Node(e);
+        Node node6 = new Node(f);
+
+        head.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+
+        return head;
+    }
+
     public static Node createSinglyLinkedList(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j,
             int k) {
         Node head = new Node(a);
