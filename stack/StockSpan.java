@@ -1,7 +1,6 @@
 package stack;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 
 public class StockSpan {
     public static void main(String[] args) {
