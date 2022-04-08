@@ -8,7 +8,7 @@ public class NextGreater {
         int[] input_arr2 = { 8, 10, 12 };
         int[] input_arr3 = { 12, 10, 8 };
 
-        printNextGreater(input_arr3);
+        printNextGreater(input_arr1);
     }
 
     public static void printNextGreater(int[] input_arr) {
