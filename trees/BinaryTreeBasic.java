@@ -48,6 +48,28 @@ public class BinaryTreeBasic {
         return root;
     }
 
+    BinaryTreeBasic smallTree4() {
+        BinaryTreeBasic root = new BinaryTreeBasic(10);
+        root.left = new BinaryTreeBasic(30);
+        root.right = new BinaryTreeBasic(40);
+        root.left.left = new BinaryTreeBasic(80);
+        root.left.left.right = new BinaryTreeBasic(70);
+        root.right.left = new BinaryTreeBasic(60);
+        root.right.right = new BinaryTreeBasic(20);
+        root.right.right.right = new BinaryTreeBasic(77);
+
+        return root;
+    }
+
+    BinaryTreeBasic smallTree5() {
+        BinaryTreeBasic root = new BinaryTreeBasic(30);
+        root.right = new BinaryTreeBasic(50);
+        root.right.left = new BinaryTreeBasic(60);
+        root.right.left.right = new BinaryTreeBasic(10);
+
+        return root;
+    }
+
     public static void printBinaryTree(BinaryTreeBasic root) {
         LinkedList<BinaryTreeBasic> treeLevel = new LinkedList<BinaryTreeBasic>();
         treeLevel.add(root);
