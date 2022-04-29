@@ -3,16 +3,16 @@ package trees;
 public class Traversals {
 
     public static void main(String[] args) {
-        Node root = new Node(10);
-        root.left = new Node(20);
-        root.right = new Node(30);
-        root.right.left = new Node(40);
-        root.right.right = new Node(50);
+        BinaryTreeBasic root = new BinaryTreeBasic(10);
+        root.left = new BinaryTreeBasic(20);
+        root.right = new BinaryTreeBasic(30);
+        root.right.left = new BinaryTreeBasic(40);
+        root.right.right = new BinaryTreeBasic(50);
 
         inorder(root);
     }
 
-    static void inorder(Node root) {
+    static void inorder(BinaryTreeBasic root) {
         if (root == null) {
             return;
         }
@@ -23,12 +23,3 @@ public class Traversals {
     }
 }
 
-class Node {
-    int data;
-    Node left;
-    Node right;
-
-    Node(int data) {
-        this.data = data;
-    }
-}
