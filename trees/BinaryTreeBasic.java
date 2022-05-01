@@ -27,12 +27,11 @@ public class BinaryTreeBasic {
     }
 
     BinaryTreeBasic smallTree2() {
-        BinaryTreeBasic root = new BinaryTreeBasic(10);
-        root.left = new BinaryTreeBasic(20);
-        root.right = new BinaryTreeBasic(30);
-        root.right.right = new BinaryTreeBasic(60);
-        root.left.left = new BinaryTreeBasic(40);
-        root.left.right = new BinaryTreeBasic(50);
+        BinaryTreeBasic root = new BinaryTreeBasic(20);
+        root.left = new BinaryTreeBasic(8);
+        root.right = new BinaryTreeBasic(12);
+        root.left.left = new BinaryTreeBasic(3);
+        root.left.right = new BinaryTreeBasic(100);
 
         return root;
     }
