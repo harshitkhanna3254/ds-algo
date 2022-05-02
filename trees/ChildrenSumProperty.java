@@ -20,24 +20,24 @@ public class ChildrenSumProperty {
 
     static boolean isCool(BinaryTreeBasic root) {
 
-        int total = findIfCool(root);
-
-        return total == root.data;
-    }
-
-    static int findIfCool(BinaryTreeBasic root) {
-
-
         if (root == null)
-            return 0;
+            return true;
 
-        if (root.left == null && root.right == null) {
-            return root.data;
-        }
+        if (root.left == null && root.right == null)
+            return true;
 
-        int left_sum = findIfCool(root.left);
-        int right_sum = findIfCool(root.right);
+        int sum = 0;
 
-        return left_sum + right_sum;
+        if (root.left != null)
+            sum += root.left.data;
+
+        if (root.right != null)
+            sum += root.right.data;
+
+        boolean leftCool = isCool(root.left);
+        boolean rightCool = isCool(root.right);
+
+        return (sum == root.data && leftCool && rightCool);
     }
+
 }

@@ -31,7 +31,7 @@ public class BinaryTreeBasic {
         root.left = new BinaryTreeBasic(8);
         root.right = new BinaryTreeBasic(12);
         root.left.left = new BinaryTreeBasic(3);
-        root.left.right = new BinaryTreeBasic(100);
+        root.left.right = new BinaryTreeBasic(5);
 
         return root;
     }
@@ -65,6 +65,18 @@ public class BinaryTreeBasic {
         root.right = new BinaryTreeBasic(50);
         root.right.left = new BinaryTreeBasic(60);
         root.right.left.right = new BinaryTreeBasic(10);
+
+        return root;
+    }
+
+    BinaryTreeBasic smallTree6() {
+        BinaryTreeBasic root = new BinaryTreeBasic(3);
+        root.left = new BinaryTreeBasic(4);
+        root.right = new BinaryTreeBasic(8);
+        root.left.left = new BinaryTreeBasic(5);
+        root.left.right = new BinaryTreeBasic(9);
+        root.right.right = new BinaryTreeBasic(7);
+        root.right.right.left = new BinaryTreeBasic(6);
 
         return root;
     }
