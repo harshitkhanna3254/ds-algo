@@ -7,24 +7,34 @@ public class HeightBalancedTree {
 
         BinaryTreeBasic root = basic.smallTree6();
 
-        int current_level = 1;
-
         BinaryTreeBasic.printBinaryTree(root);
 
-        Boolean isCool = isBalanced(root, current_level);
+        int isCool = isBalanced(root);
 
-        if (isCool) {
-            System.out.println("Yup. It's balaced");
-        } else {
+        if (isCool == -1) {
             System.out.println("Nah not balaced.");
+        } else {
+            System.out.println("Yup. It's balaced");
         }
     }
 
-    static boolean isBalanced(BinaryTreeBasic root, int current_level) {
+    static int isBalanced(BinaryTreeBasic root) {
 
-        boolean leftBalanced = isBalanced(root.left, current_level + 1);
-        boolean rightBalanced = isBalanced(root.right, current_level + 1);
+        if (root == null)
+            return 0;
 
-        return true;
+        int leftHeight = isBalanced(root.left);
+        if (leftHeight == -1)
+            return -1;
+
+        int rightHeight = isBalanced(root.right);
+        if (rightHeight == -1)
+            return -1;
+
+        if (Math.abs(leftHeight - rightHeight) > 1)
+            return -1;
+
+        return Math.max(leftHeight, rightHeight) + 1;
+
     }
 }
