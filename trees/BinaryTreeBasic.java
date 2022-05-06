@@ -2,8 +2,6 @@ package trees;
 
 import java.util.LinkedList;
 
-import javax.swing.RootPaneContainer;
-
 public class BinaryTreeBasic {
     int data;
     BinaryTreeBasic left;
