@@ -14,6 +14,11 @@ public class BinaryTreeBasic {
         this.data = data;
     }
 
+    @Override
+    public String toString() {
+        return "" + data;
+    }
+
     BinaryTreeBasic smallTree() {
         BinaryTreeBasic root = new BinaryTreeBasic(10);
         root.left = new BinaryTreeBasic(20);
