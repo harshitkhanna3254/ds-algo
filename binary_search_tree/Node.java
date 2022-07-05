@@ -21,6 +21,25 @@ public class Node {
         return root;
     }
 
+    static Node generateBigBST() {
+        Node root = new Node(10);
+
+        root.left = new Node(14);
+        root.left.left = new Node(3);
+        root.left.right = new Node(7);
+        root.left.left.left = new Node(1);
+        root.left.left.right = new Node(4);
+        root.left.right.left = new Node(6);
+
+        root.right = new Node(15);
+        root.right.left = new Node(5);
+        root.right.right = new Node(20);
+        root.right.left.left = new Node(11);
+        root.right.right.left = new Node(17);
+
+        return root;
+    }
+
     public static void printBinaryTree(Node root) {
         LinkedList<Node> treeLevel = new LinkedList<Node>();
         treeLevel.add(root);
@@ -255,7 +274,5 @@ class BSTTest {
 
         return parent;
     }
-
-    
 
 }
