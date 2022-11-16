@@ -5,16 +5,16 @@ import java.util.Arrays;
 public class QuickSort {
     public static void main(String[] args) {
 
-        int[] arr = { 8, 4, 7, 9, 3, 10, 5 };
+        int[] arr = {8, 4, 7, 9, 3, 10, 5};
 
-        int[] arr1 = { 20, 5, 40, 60, 10, 30 };
+        int[] arr1 = {10, 10, 10, 10, 10, 10, 10};
 
         // System.out.println(hoare(arr, 0, 6));
 
-        quicksortLomuto(arr, 0, 6);
+        quicksortLomuto(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
 
-        quicksortHoare(arr1, 0, 5);
+        quicksortHoare(arr1, 0, arr1.length - 1);
         System.out.println(Arrays.toString(arr1));
     }
 

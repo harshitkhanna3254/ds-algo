@@ -11,6 +11,7 @@ public class MajorityElement {
 
     }
 
+
     static int majority(int[] arr) {
 
         int res = 0;

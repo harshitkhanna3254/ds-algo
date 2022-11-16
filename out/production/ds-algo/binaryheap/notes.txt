@@ -1,0 +1,10 @@
+Heap is a complete binary tree stored as an array
+
+left(i) = 2i + 1
+right(i) = 2i + 2
+parent = Floor(i/2 - 1)
+
+Min heap:
+    - Complete Binary Tree
+    - Every node has value smaller than its dec
+    - Represented and stored as an array

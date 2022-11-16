@@ -9,8 +9,28 @@ public class MoveZerosToEnd {
 
         int[] arr1 = { 10, 20, 0, 0, 30, 0, 40, 0, 40, 0 };
 
+        System.out.println(Arrays.toString(moveZerosPrac(arr1)));
+
+
         System.out.println(Arrays.toString(moveZeros(arr1)));
 
+    }
+
+
+    private static int[] moveZerosPrac(int[] arr) {
+        int low = 0;
+        int high = arr.length - 1;
+
+        while(low < high) {
+            if(arr[low] == 0) {
+                Reverse.swap(arr, low, high);
+                high--;
+            } else {
+                low++;
+            }
+        }
+
+        return arr;
     }
 
     static int[] moveZeros(int[] arr) {

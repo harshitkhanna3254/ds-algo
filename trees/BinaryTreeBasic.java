@@ -10,7 +10,7 @@ public class BinaryTreeBasic {
     BinaryTreeBasic() {
     }
 
-    BinaryTreeBasic(int data) {
+    public BinaryTreeBasic(int data) {
         this.data = data;
     }
 

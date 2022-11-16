@@ -16,7 +16,7 @@ public class ReverseQueue {
     }
 }
 
-class TestStackusingQueue {
+class TestStackusingQueueV2 {
 
     public static void main(String[] args) {
 

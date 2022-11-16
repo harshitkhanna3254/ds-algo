@@ -5,10 +5,31 @@ import java.util.HashSet;
 public class ZeroSumSubarray {
     public static void main(String[] args) {
 
-        int[] arr = { 4, -3, 2, 1 };
+        int[] arr = {4, -3, 2, 1};
 
+        System.out.println(zeroSumPrac(arr));
         System.out.println(zeroSumSubarray(arr));
+    }
 
+
+    private static boolean zeroSumPrac(int[] arr) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        int preSum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            preSum = preSum + arr[i];
+
+            if (set.contains(preSum))
+                return true;
+
+            if (preSum == 0)
+                return true;
+
+            set.add(preSum);
+        }
+        return false;
     }
 
     private static boolean zeroSumSubarray(int[] arr) {

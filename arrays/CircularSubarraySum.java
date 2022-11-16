@@ -3,33 +3,33 @@ package arrays;
 public class CircularSubarraySum {
     public static void main(String[] args) {
 
-        int[] arr = { 10, 5, -5 };
+        int[] arr = {10, 5, -5};
 
-        int[] arr2 = { 8, -4, 3, -5, 4 };
+        int[] arr2 = {8, -4, 3, -5, 4};
 
-        System.out.println(curcularSumNaive(arr2));
-        System.out.println(curcularSumEff(arr2));
-
+        System.out.println(circ(arr2));
     }
 
-    static int curcularSumEff(int[] arr) {
+    private static int circ(int[] arr) {
 
-        int res = arr[0];
+        int maxSumNormal = kadane(arr);
 
-        int maxNormal = kadane(arr);
-
-        if (maxNormal < 0)
-            return maxNormal;
+        if (maxSumNormal < 0) {
+            return maxSumNormal;
+        }
 
         int arrSum = 0;
         for (int i = 0; i < arr.length; i++) {
-            arrSum += arr[i];
+            arrSum = arrSum + arr[i];
             arr[i] = -arr[i];
         }
 
-        int max_circular = arrSum - (-kadane(arr));
+        int maxSumInverted = kadane(arr);
 
-        return Math.max(maxNormal, max_circular);
+        int maxCircular = arrSum - (-maxSumInverted);
+
+        return Math.max(maxSumNormal, maxCircular);
+
     }
 
     static int kadane(int[] arr) {
@@ -42,26 +42,6 @@ public class CircularSubarraySum {
         for (int i = 1; i < arr.length; i++) {
             endMax[i] = Math.max(arr[i], endMax[i - 1] + arr[i]);
             res = Math.max(res, endMax[i]);
-        }
-
-        return res;
-    }
-
-    static int curcularSumNaive(int[] arr) {
-
-        int res = 0;
-
-        int n = arr.length;
-
-        // beginning max sum
-        for (int i = 0; i < n; i++) {
-            int curr = 0;
-            for (int j = 0; j < n; j++) {
-                int index = (j + i) % n;
-                curr = Integer.max(curr + arr[index], arr[index]);
-                res = Math.max(curr, res);
-                // System.out.println(curr + " " + res);
-            }
         }
 
         return res;
